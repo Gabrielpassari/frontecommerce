@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Audiowide, Golos_Text } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import NavBar from '@/components/NavBar/NavBar';
+import NavBar from '../components/NavBar/NavBar';
 
 const audiowide = Audiowide({
   weight: '400',

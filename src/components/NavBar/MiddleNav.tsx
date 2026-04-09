@@ -13,7 +13,7 @@ export default function MiddleNav() {
           href='/'
           className='Audiowide text-4xl font-bold text-black lg:text-5xl'
         >
-          Mari<span className='text-[var(--second)]'>Chique</span>
+          Caracteres<span className='text-[var(--second)]'>Turbinado</span>
         </Link>
 
         {/* Search Box */}
