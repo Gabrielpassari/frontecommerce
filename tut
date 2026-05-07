@@ -1,0 +1,119 @@
+Excelente! Focar apenas no Hero simplifica bastante. Se você seguir essa ordem lógica, não tem erro. Pense nisso como montar uma casa: primeiro as paredes externas, depois as divisórias, e por fim a decoração.
+
+Aqui está o seu roteiro exato, passo a passo, para a hora da prova:
+
+### Passo 1: Preparar o terreno e criar o arquivo
+Se você for começar em um computador novo, a primeira coisa é garantir que tudo está rodando.
+1. Abra o terminal e rode `npm install` (se clonou o projeto) e depois `npm run dev`.
+2. Vá até a pasta `src/components/` e crie uma pasta chamada `Hero` (ou crie direto o arquivo).
+3. Crie o arquivo **`Hero.tsx`**.
+
+### Passo 2: O "esqueleto" e as importações
+Comece importando o que o Next.js exige e criando a função principal vazia.
+
+```tsx
+// 1. Importações essenciais
+import Image from 'next/image';
+import Link from 'next/link';
+
+// 2. Exportar o componente
+export default function Hero() {
+  return (
+    // Aqui vai o código
+  )
+}
+```
+
+### Passo 3: Criar o Container Principal (A caixa de fora)
+Aqui você cria a seção principal e usa o Flexbox para dividir a tela. A regra de ouro é: **coluna no celular, linha no computador.**
+
+```tsx
+export default function Hero() {
+  return (
+    <section className="bg-white w-full px-8 py-16">
+      
+      {/* O container centralizado que faz a mágica da responsividade */}
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+        
+        {/* Espaço do Texto virá aqui */}
+        
+        {/* Espaço da Imagem virá aqui */}
+
+      </div>
+      
+    </section>
+  )
+}
+```
+
+### Passo 4: Fazer o lado esquerdo (Textos e Botão)
+Dentro daquela `div` principal, você vai criar a primeira metade. Use a classe `w-full md:w-1/2` para garantir que ela ocupe metade da tela no desktop.
+
+```tsx
+        {/* Lado Esquerdo: Textos */}
+        <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
+          
+          <h1 className="text-5xl font-bold text-gray-900">
+            Nova Coleção Verão
+          </h1>
+          
+          <p className="text-lg text-gray-600">
+            Encontre o estilo perfeito para você com preços imbatíveis.
+          </p>
+          
+          {/* Botão de Ação */}
+          <Link href="/produtos" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">
+            Comprar Agora
+          </Link>
+          
+        </div>
+```
+
+### Passo 5: Fazer o lado direito (A Imagem)
+Logo abaixo da `div` do texto, você cria a `div` da imagem. **Atenção total aqui:** a div em volta da imagem *precisa* ter `relative` para o `fill` do Next.js funcionar sem dar erro!
+
+```tsx
+        {/* Lado Direito: Imagem */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          
+          {/* Caixa com altura e largura definidas para a imagem não sumir */}
+          <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
+            <Image 
+              src="/heroproduct.png" // O nome da imagem que estiver na pasta public
+              alt="Modelo da coleção"
+              fill // Faz a imagem preencher a div
+              className="object-cover rounded-xl" // Ajusta a imagem e arredonda os cantos
+              priority
+            />
+          </div>
+
+        </div>
+```
+
+### Passo 6: Chamar o Hero na tela principal (`page.tsx`)
+Seu componente está pronto! Mas ele ainda não aparece no site. Você precisa ir no arquivo principal da página e colocá-lo lá.
+
+Abra o arquivo **`src/app/page.tsx`**:
+
+```tsx
+// Importe o seu componente no topo
+import Hero from '../components/Hero/Hero'; // Ajuste o caminho se precisar
+
+export default function Home() {
+  return (
+    <main>
+      {/* Coloque o componente aqui para ele aparecer na tela */}
+      <Hero />
+    </main>
+  );
+}
+```
+
+---
+
+1. Crie o `Hero.tsx`.
+2. Faça uma `div` principal com `flex flex-col md:flex-row`.
+3. Coloque uma `div` pro texto e uma `div` com `relative` pra imagem.
+4. Jogue o componente dentro do `page.tsx`.
+
+Qual dessas etapas você acha que pode dar mais branco na hora de digitar no computador?

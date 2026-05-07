@@ -1,0 +1,11 @@
+// src/app/page.tsx
+import Hero from '../components/Hero/Hero'; // Verifique o caminho correto das pastas
+
+export default function Home() {
+  return (
+    <main>
+      <Hero />
+      {/* Outras seções viriam aqui, como a grade de produtos */}
+    </main>
+  );
+}

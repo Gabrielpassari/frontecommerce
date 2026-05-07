@@ -1,0 +1,22 @@
+meu-ecommerce/
+│
+├── public/                 # 1. Arquivos Estáticos
+│   ├── hero-shape1.png
+│   └── heroproduct.png
+│
+├── src/                    # 2. Código Fonte Principal
+│   │
+│   ├── app/                # 3. Roteamento e Páginas (Next.js App Router)
+│   │   ├── layout.tsx      # Esqueleto do site (Header/Footer vão aqui)
+│   │   ├── page.tsx        # Página inicial (Home)
+│   │   └── globals.css     # CSS Global e variáveis do Tailwind
+│   │
+│   └── components/         # 4. Blocos de Montagem (Lego)
+│       ├── Hero/
+│       │   └── Hero.tsx
+│       └── NavBar/
+│           └── NavBar.tsx
+│
+├── tailwind.config.ts      # 5. Configurações Visuais
+├── tsconfig.json           # Configurações do TypeScript e Atalhos (@/)
+└── package.json            # Lista de dependências (React, Next, Tailwind)
